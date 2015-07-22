@@ -1,12 +1,14 @@
 <template name="Home">
+    <div class="home">
     {{> HomeHead}}
     {{> HomeAbout}}
     {{> HomePrices}}
     {{> HomeContact}}
+    </div>
 </template>
 
 <template name="HomeHead">
-    <div class="row">
+    <div class="row" id="home-head">
     <div class="col-md-5 col-lg-5">
         <h1>Project X</h1>
         <p class="text-justify">
@@ -32,8 +34,8 @@
 </template>
 
 <template name="HomeAbout">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 well text-center">
+    <div class="row" id="home-about">
+      <div class="col-md-12 col-lg-12 text-center">
         <h2 class="text-uppercase">About</h2>
           <div class="col-md-offset-2 col-lg-offset-2 col-md-8 col-lg-8 text-muted">
               <p>
@@ -47,8 +49,8 @@
 </template>
 
 <template name="HomePrices">
-    <div class="row">
-        <div class="col-md-12 col-lg-12 well text-center">
+    <div class="row" id="home-prices">
+        <div class="col-md-12 col-lg-12 text-center">
             <h2 class="text-uppercase">Prices</h2>
             <div class="col-md-offset-2 col-lg-offset-2 col-md-8 col-lg-8 text-muted">
                 <p>
@@ -103,8 +105,8 @@
 </template>
 
 <template name="HomeContact">
-    <div class="row">
-        <div class="col-md-12 col-lg-12 well text-center">
+    <div class="row" id="home-contact">
+        <div class="col-md-12 col-lg-12 text-center">
             <h2 class="text-uppercase">contact us</h2>
             <div class="col-md-offset-2 col-lg-offset-2 col-md-8 col-lg-8 text-muted">
                 <p>
