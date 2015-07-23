@@ -23,3 +23,8 @@ Router.route '/',
   action: () ->
     @render 'HomeMenu', to: 'layoutMenu'
     @render 'Home'
+
+
+Router.route '/company/new',
+  name: 'createCompany'
+  layoutTemplate: 'Layout'

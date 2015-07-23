@@ -15,3 +15,8 @@ Images = new FS.Collection 'images',
       stream.stream = gm readStream, fileObj.name()
       stream.resize '512', '512'
       stream.pipe writeStream
+
+Images.allow
+  insert: -> true
+  update: -> true
+  remove: -> true
