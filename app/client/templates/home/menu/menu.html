@@ -11,16 +11,15 @@
         </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            {{# if currentUser}}
-                {{# linkTo}}
-                    {{currentUser.profile.fullname}}
-                {{/ linkTo}}
-            {{else}}
-                {{# linkTo route='atSignIn'}}
-                  Sing in
-                {{/ linkTo}}
-            {{/ if}}
-        </li>
+            {{> MenuAuth}}
+            <!--{{# if currentUser}}-->
+                <!--{{# linkTo}}-->
+                    <!--{{currentUser.profile.fullname}}-->
+                <!--{{/ linkTo}}-->
+            <!--{{else}}-->
+                <!--{{# linkTo route='atSignIn'}}-->
+                  <!--Sing in-->
+                <!--{{/ linkTo}}-->
+            <!--{{/ if}}-->
     </ul>
 </template>
