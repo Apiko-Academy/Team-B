@@ -25,6 +25,6 @@ Router.route '/',
     @render 'Home'
 
 
-Router.route '/company/new',
+Router.route '/company/create',
   name: 'createCompany'
   layoutTemplate: 'Layout'

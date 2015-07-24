@@ -1,3 +1,10 @@
+AccountsTemplates.removeField 'password'
+AccountsTemplates.addField
+  _id: 'password'
+  type: 'password'
+  required: true
+  minLength: 6
+
 AccountsTemplates.addField
   _id: 'username'
   type: 'text'
