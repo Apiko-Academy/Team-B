@@ -9,7 +9,7 @@ schema = new SimpleSchema
     label: 'Holidays'
     defaultValue: []
     minCount: 0
-    maxCount: 365
+    maxCount: 2**16
   projects:
     type: [schemas.Project]
     label: 'Projects'

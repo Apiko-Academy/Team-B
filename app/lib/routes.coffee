@@ -28,3 +28,14 @@ Router.route '/',
 Router.route '/company/create',
   name: 'createCompany'
   layoutTemplate: 'Layout'
+  action: () ->
+    @render 'CreateCompanyMenu', to: 'layoutMenu'
+    @render 'CreateCompany'
+
+Router.onBeforeAction () ->
+  if Meteor.userId()
+    @next()
+  else
+    @render 'AccessForbidden'
+,
+  only: ['createCompany']
