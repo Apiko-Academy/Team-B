@@ -12,5 +12,7 @@ schema = new SimpleSchema
     type: [Mongo.ObjectID]
     label: 'Companies'
     defaultValue: []
+  'companies.$':
+    regEx: SimpleSchema.RegEx.Id
 
 Namespace 'schemas', UserProfile:schema

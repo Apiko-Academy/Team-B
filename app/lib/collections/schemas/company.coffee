@@ -17,7 +17,8 @@ schema = new SimpleSchema
     min: 0
     max: 2 ** 32
   owner:
-    type: Mongo.ObjectID
+    type: String
+    regEx: SimpleSchema.RegEx.Id
     label: 'Owner'
     autoform:
       type: "hidden"
