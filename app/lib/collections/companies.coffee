@@ -5,4 +5,12 @@ Companies.allow
   update: -> true
   remove: -> true
 
+Companies.deny
+  insert: (userId, doc) ->
+    not Meteor.userId()
+  update: ->
+    not Meteor.userId()
+  remove: ->
+    not Meteor.userId()
+
 Companies.attachSchema schemas.Company
