@@ -24,6 +24,8 @@ Router.route '/',
     @render 'HomeMenu', to: 'layoutMenu'
     @render 'Home'
 
+Router.route '/access-forbidden',
+  name: 'accessForbidden'
 
 Router.route '/company/create',
   name: 'createCompany'
@@ -36,6 +38,6 @@ Router.onBeforeAction () ->
   if Meteor.userId()
     @next()
   else
-    @render 'AccessForbidden'
+    Router.go 'accessForbidden'
 ,
   only: ['createCompany']
