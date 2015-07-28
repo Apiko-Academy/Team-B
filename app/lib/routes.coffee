@@ -24,6 +24,10 @@ Router.route '/',
     @render 'HomeMenu', to: 'layoutMenu'
     @render 'Home'
 
+Router.route '/user/profile',
+  name: 'UserProfile'
+  layoutTemplate: 'Layout'
+
 Router.route '/access-forbidden',
   name: 'accessForbidden'
 
@@ -49,4 +53,4 @@ Router.onBeforeAction () ->
   else
     Router.goToAccessForbidden()
 ,
-  only: ['createCompany']
+  only: ['createCompany', 'userProfile']

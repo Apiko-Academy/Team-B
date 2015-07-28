@@ -19,5 +19,5 @@ AccountsTemplates.addField
   type: 'text'
   displayname: 'Fullname'
   required: true
-  re: /^[\w]{2,140}$/
+  re: /^[\w\s]{2,140}$/
   errStr: 'Invalid fullname'
