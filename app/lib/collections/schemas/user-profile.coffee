@@ -10,7 +10,7 @@ schema = new SimpleSchema
     label: 'Photo'
     optional: true
   companies:
-    type: [Mongo.ObjectID]
+    type: [String]
     label: 'Companies'
     defaultValue: []
   'companies.$':

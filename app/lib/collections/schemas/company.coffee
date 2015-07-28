@@ -20,9 +20,9 @@ schema = new SimpleSchema
     type: String
     regEx: SimpleSchema.RegEx.Id
     label: 'Owner'
-    autoform:
-      type: "hidden"
     denyUpdate: true
+    autoform:
+      type: 'hidden'
     autoValue: () ->
       @userId if @isInsert
   customers:
