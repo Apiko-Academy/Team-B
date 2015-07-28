@@ -11,4 +11,4 @@ Template.UserProfile.helpers
       role = 'None'
   userInitials: () ->
     fullName = Meteor.user().profile.fullname
-    [x[0].upper() for x in fullName.split(' ')].join('')
+    [x[0].uppercase() for x in fullName.split(' ')].join('')

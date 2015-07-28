@@ -5,7 +5,8 @@ schema = new SimpleSchema
     min: 2
     max: 140
   photo:
-    type: Mongo.ObjectID
+    type: String
+    regEx: SimpleSchema.regEx.Id
     label: 'Photo'
     optional: true
   companies:
