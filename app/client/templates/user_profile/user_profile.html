@@ -37,14 +37,17 @@
                 </h3>
                 <ul class="list-unstyled lead">
                     {{# each currentUser.profile.companies}}
-                        <li>
+                        <div class="col-md-3 col-lg-3">
                             {{# linkTo}}
                                 {{this.name}}
                             {{/ linkTo}}
+                            {{# if this.isOwner}}
+                                <i class="fa fa-check"></i>
+                            {{/ if}}
                             <a href="#" class="text-danger">
                                 <i class="fa fa-trash"></i>
                             </a>
-                        </li>
+                        </div>
                     {{/ each}}
                 </ul>
             </div>
