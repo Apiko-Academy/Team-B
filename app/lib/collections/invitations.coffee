@@ -14,11 +14,11 @@ denyChecker = (userId) ->
   deny
 
 Invitations.deny
-  insert: (userId, doc) ->
+  insert:
     denyChecker
-  update: ->
+  update:
     denyChecker
-  remove: ->
+  remove:
     denyChecker
 
 Invitations.attachSchema schemas.Invitation

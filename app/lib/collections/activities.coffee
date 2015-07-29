@@ -1,6 +1,6 @@
-@Activity = new Mongo.Collection 'activity'
+@Activities = new Mongo.Collection 'activities'
 
-Activity.allow
+Activities.allow
   insert: -> true
   update: -> true
   remove: -> true
@@ -13,12 +13,12 @@ denyChecker = (userId) ->
     '''
   deny
 
-Activity.deny
-  insert: (userId, doc) ->
+Activities.deny
+  insert:
     denyChecker
-  update: ->
+  update:
     denyChecker
-  remove: ->
+  remove:
     denyChecker
 
-Activity.attachSchema schemas.Activity
+Activities.attachSchema schemas.Activity
