@@ -5,11 +5,13 @@ Template.UserProfile.helpers
   userRole: () ->
     user = Meteor.user()
     if Roles.userIsInRole user._id, 'admin'
-      role = 'Owner'
+      'Admin'
     else if user.profile.companies.length
-      role = 'Invited user'
+      'Invited user'
     else
-      role = 'None'
+      'None'
   userInitials: () ->
-    fullname = Meteor.user().profile.fullname
-    [x[0].toUpperCase() for x in fullname.split(' ')].join('')
+    fullname = ''
+    for word in Meteor.user().profile.fullname.split(' ')
+      fullname += word[0].toUpperCase()
+    fullname
