@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-9 col-lg-9">
                 <p class="lead">
-                    {{currentUser.profile.fullName}}
+                    {{currentUser.profile.fullname}}
                 </p>
                 <p>
                     <b>Email:</b>
@@ -25,6 +25,28 @@
                     &nbsp;
                     {{userRole}}
                 </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h3>Companies
+                    &nbsp;
+                {{# linkTo route='createCompany'}}
+                    <i class="fa fa-plus"></i>
+                {{/ linkTo}}
+                </h3>
+                <ul class="list-unstyled lead">
+                    {{# each currentUser.profile.companies}}
+                        <li>
+                            {{# linkTo}}
+                                {{this.name}}
+                            {{/ linkTo}}
+                            <a href="#" class="text-danger">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </li>
+                    {{/ each}}
+                </ul>
             </div>
         </div>
     </div>

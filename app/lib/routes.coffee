@@ -5,8 +5,20 @@ Router.configure
 
 AccountsTemplates.configureRoute 'signIn',
   layoutTemplate: 'Layout'
+  redirect: () ->
+    user = Meteor.user()
+    unless user
+      return
+    if user.profile.companies.length
+      Router.go 'userProfile'
+    else
+      Router.go 'createCompany'
+
+
 AccountsTemplates.configureRoute 'signUp',
   layoutTemplate: 'Layout'
+  redirect: () ->
+    Router.go 'createCompany'
 
 Router._scrollToHash = (hash) ->
   hash = 'body' unless hash.length
@@ -25,7 +37,9 @@ Router.route '/',
     @render 'Home'
 
 Router.route '/user/profile',
-  name: 'UserProfile'
+  name: 'userProfile'
+  waitOn: () ->
+    Meteor.subscribe 'fullUserInfo'
   layoutTemplate: 'Layout'
 
 Router.route '/access-forbidden',
