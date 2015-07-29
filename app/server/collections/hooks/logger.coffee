@@ -3,18 +3,18 @@ collections = [
   itemName: 'Activity'
 ,
   collection: Meteor.users
-  itemName: 'Users'
-,
-  collection: Invitations
-  itemName: 'Invitation'
+  itemName: 'User'
 ,
   collection: Companies
   itemName: 'Company'
+,
+  collection: Invitations
+  itemName: 'Invitation'
 ]
 
 opTypes = [
   hookName: 'insert'
-  opName: 'inserted'
+  opName: 'created'
 ,
   hookName: 'update'
   opName: 'updated'
@@ -28,7 +28,7 @@ generateMessage = (collectionInfo) ->
     collectionInfo.collection.after[operation.hookName] (userId, doc) ->
       if userId
         message = [
-          "#{collection.itemName} '#{doc._id}'",
+          "#{collectionInfo.itemName} '#{doc._id}'",
           "#{operation.opName} by '#{userId}'."
         ].join ' '
       else
