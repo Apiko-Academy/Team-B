@@ -1,5 +1,5 @@
 Template.CompanyInfo.events
-  "click [data-action='remove']": (e) ->
+  "click [data-action='remove-company']": (e) ->
     e.preventDefault()
     # to get company id:
     # Template.currentData()._id
@@ -7,8 +7,8 @@ Template.CompanyInfo.events
     # this._id (@_id)
     Companies.remove @_id, (err) ->
       if (err)
-        sAlert.error err
-        Winston.error err
+        sAlert.error err.message
+        Winston.error err.message
 
 Template.CompanyInfo.onRendered () ->
   @$('[data-toggle="tooltip"]').tooltip()
