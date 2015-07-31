@@ -41,6 +41,9 @@ Router.route '/user/profile',
   waitOn: () ->
     Meteor.subscribe 'fullUserInfo'
   layoutTemplate: 'Layout'
+  action: () ->
+    @render 'DefaultMenu', to: 'layoutMenu'
+    @render 'UserProfile'
 
 Router.route '/access-forbidden',
   name: 'accessForbidden'
@@ -54,7 +57,7 @@ Router.route '/companies/create',
   name: 'createCompany'
   layoutTemplate: 'Layout'
   action: () ->
-    @render 'CreateCompanyMenu', to: 'layoutMenu'
+    @render 'DefaultMenu', to: 'layoutMenu'
     @render 'CreateCompany'
 
 Router.onBeforeAction () ->
