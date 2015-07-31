@@ -1,3 +1,12 @@
+Template.UserProfile.events
+  'click [data-action="remove-user"]': ->
+    Meteor.users.remove Meteor.userId(), (err) ->
+      if (err)
+        sAlert.error err.message
+        Winstom.error err.message
+      else
+        Router.go 'home'
+
 Template.UserProfile.helpers
   userEmail:() ->
     if Meteor.user()
@@ -7,7 +16,7 @@ Template.UserProfile.helpers
     if Roles.userIsInRole user._id, 'admin'
       'Admin'
     else if user.profile.companies.length
-      'Invited user'
+      'Owner'
     else
       'None'
   userInitials: () ->
