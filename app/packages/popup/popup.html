@@ -1,0 +1,12 @@
+<template name="PopupToggle">
+    {{> Template.contentBlock}}
+</template>
+
+<template name="PopupWindow">
+    <div class="popover fade top in" data-popup="{{id}}" role="tooltip">
+        <div class="arrow"></div>
+        <div class="popover-content">
+            {{> Template.contentBlock}}
+        </div>
+    </div>
+</template>
