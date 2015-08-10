@@ -1,0 +1,33 @@
+<template name="CompanyCustomers">
+    <div>
+        Company customers
+        &nbsp;
+        {{# PopupWindow id='addNewCustomer'}}
+            <p>New:
+                <span>
+                    {{# autoForm id='addCustomer'
+                        type="update-pushArray"
+                        collection=collection.companies
+                        doc=company
+                        placeholder="schemaLabel"
+                        scope='customers'}}
+                        {{> afFieldInput name='name' value=''}}
+                    {{/ autoForm}}
+                </span>
+            </p>
+        {{/ PopupWindow}}
+        {{# PopupToggle id='addNewCustomer'}}
+        <span>
+            <a href="#">
+            <i class="fa fa-plus"></i>
+            </a>
+        </span>
+        {{/ PopupToggle}}
+    </div>
+    <table class="table table-striped customers-table">
+        <thead><tr><th>#</th><th>Customers</th><th></th><th></th></tr></thead>
+    {{# each customersInfo}}
+        {{> CustomerItem}}
+    {{/ each}}
+    </table>
+</template>
