@@ -6,7 +6,18 @@
                 <h4 class="text-left">
                     <i class='fa fa-users' style="padding-right: 10px"></i>
                     {{company.name}}
-                    <a href="#"><i class="fa fa-plus text-success"></i></a>
+                    {{# PopupWindow id='editCompanyName'}}
+                        {{# autoForm id='editName'
+                        type="update"
+                        collection=collection.companies
+                        doc=company
+                        placeholder="schemaLabel"}}
+                            {{> afFieldInput name='name'}}
+                        {{/ autoForm}}
+                    {{/ PopupWindow}}
+                    {{# PopupToggle id='editCompanyName'}}
+                    <a href="#"><i class="fa fa-pencil text-success"></i></a>
+                    {{/ PopupToggle}}
                     <a href="#" data-action="rm-company"><i class="fa fa-trash text-danger"></i></a>
                 </h4>
             </div>
