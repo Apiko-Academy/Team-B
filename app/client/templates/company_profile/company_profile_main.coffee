@@ -1,3 +1,14 @@
+Template.CompanyProfile.events
+  "click [data-action='rm-company']": (e) ->
+    e.preventDefault()
+    currentId = Template.currentData().company._id
+    Companies.remove currentId, (err) ->
+      if (err)
+        sAlert.error err.message
+        Winstom.error err.message
+      else
+        Router.go 'userProfile'
+
 Template.CompanyProfile.helpers
   companyInfo: () ->
     Companies.findOne()
