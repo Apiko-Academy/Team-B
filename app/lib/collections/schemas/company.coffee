@@ -25,12 +25,18 @@ schema = new SimpleSchema
       type: 'hidden'
     autoValue: () ->
       @userId if @isInsert
+  resources:
+    type: [schemas.Resource]
+    label: 'Resources'
+    defaultValue: []
+    minCount: 0
+    maxCount: 2**16
   customers:
     type: [schemas.Customer]
     label: 'Customers'
     defaultValue: []
-    min: 0
-    max: 2 ** 16
+    minCount: 0
+    maxCount: 2 ** 16
 
 
 Namespace 'schemas', Company:schema
