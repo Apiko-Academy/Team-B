@@ -4,7 +4,6 @@ Template.PopupToggle.events({
         var globalTpl = Template.instance();
         var el = globalTpl.$('>');
         var thisDataId = Template.currentData().id;
-        console.log(thisDataId);
         var popover = $('[data-popup=' + thisDataId + ']');
 
         var top = el.position().top - 70;
