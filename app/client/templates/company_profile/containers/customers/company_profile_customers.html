@@ -3,18 +3,14 @@
         Company customers
         &nbsp;
         {{# PopupWindow id='addNewCustomer'}}
-            <p>New:
-                <span>
-                    {{# autoForm id='addCustomer'
-                        type="update-pushArray"
-                        collection=collection.companies
-                        doc=company
-                        placeholder="schemaLabel"
-                        scope='customers'}}
-                        {{> afFieldInput name='name' value=''}}
-                    {{/ autoForm}}
-                </span>
-            </p>
+            {{# autoForm id='addCustomer'
+                type="update-pushArray"
+                collection=collection.companies
+                doc=company
+                placeholder="schemaLabel"
+                scope='customers'}}
+                {{> afFieldInput name='name' value=''}}
+            {{/ autoForm}}
         {{/ PopupWindow}}
         {{# PopupToggle id='addNewCustomer'}}
         <span>
