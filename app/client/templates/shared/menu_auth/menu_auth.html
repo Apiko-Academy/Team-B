@@ -6,6 +6,13 @@
                 <li>{{# linkTo route='userProfile'}}
                         Profile
                     {{/ linkTo}}</li>
+                {{# if isInRole 'admin'}}
+                <li>
+                    {{# linkTo route='adminDashboard'}}
+                        Admin Dashboard
+                    {{/ linkTo}}
+                </li>
+                {{/ if}}
                 <li><a href="#" data-action="sign-out">Sign out</a></li>
             </ul>
         </li>
