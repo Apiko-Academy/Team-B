@@ -8,9 +8,9 @@ Template.UserProfile.events
         Router.go 'home'
 
 Template.UserProfile.helpers
-  userEmail:() ->
-    if Meteor.user()
-      Meteor.user().emails[0].address
+  us: Meteor.users
+  userEmail: -> Meteor.user().emails[0].address
+#    if Meteor.user()
   userRole: () ->
     user = Meteor.user()
     if Roles.userIsInRole user._id, 'admin'

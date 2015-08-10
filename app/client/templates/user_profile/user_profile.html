@@ -11,14 +11,44 @@
             </div>
             <div class="col-md-9 col-lg-9">
                 <p class="lead">
+                    {{# PopupWindow id="updateUsername"}}
+                        {{#autoForm id="updateUserFullName"
+                                    type="update"
+                                    collection=collection.users
+                                    doc=currentUser}}
+                            {{> afFieldInput name="profile.fullname"}}
+                        {{/ autoForm}}
+                    {{/ PopupWindow}}
                     {{currentUser.profile.fullname}}
+                    <span>
+                        {{# PopupToggle id="updateUsername"}}
+                        <a href="#">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                        {{/ PopupToggle}}
+                    </span>
                 </p>
                 <p>
                     <b>Email:</b>
                     &nbsp;
-                    <a href="mailTo:{{userEmail}}">
-                        {{userEmail}}
+                    {{# PopupWindow id="updateUserEmail"}}
+                        {{#autoForm id="updUsrEmail"
+                                    type="update"
+                                    collection=collection.users
+                                    doc=currentUser}}
+                            {{> afFieldInput name='emails.0.address'}}
+                        {{/ autoForm}}
+                    {{/ PopupWindow}}
+                    <a href="mailTo:{{currentUser.emails.[0].address}}">
+                        {{currentUser.emails.[0].address}}
                     </a>
+                    <span>
+                        {{# PopupToggle id="updateUserEmail"}}
+                            <a href="#">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        {{/ PopupToggle}}
+                    </span>
                 </p>
                 <p>
                     <b>Role:</b>
