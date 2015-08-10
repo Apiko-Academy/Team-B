@@ -1,0 +1,29 @@
+<template name="CustomerItem">
+    {{# PopupWindow id=updateCustomer}}
+        {{#autoForm id=updateCustomer
+        type="update"
+        collection=collection.companies
+        doc=../company
+        setArrayItems=true}}
+            {{> afFieldInput name=fieldName}}
+        {{/ autoForm}}
+    {{/ PopupWindow}}
+    <tbody>
+    <tr>
+        <td>{{index}}</td>
+        <td>{{customerName}}</td>
+        <td>
+            {{# PopupToggle id=updateCustomer}}
+                <a href="#">
+                    <i class="fa fa-pencil"></i>
+                </a>
+            {{/ PopupToggle}}
+        </td>
+        <td>
+            <a href="#" data-action="remove-customer">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</template>
