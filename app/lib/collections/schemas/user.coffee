@@ -7,6 +7,7 @@ schema = new SimpleSchema
   services:
     type: Object
     blackbox: true
+    optional: true
   emails:
     type: [Object]
     label: 'Emails'
@@ -15,12 +16,19 @@ schema = new SimpleSchema
     type: String
   'emails.$.verified':
     type: Boolean
+    optional: true
+    defaultValue: false
   profile:
     type: schemas.UserProfile
     label: 'Profile'
   createdAt:
     type: Date
     label: 'Created at'
+    denyUpdate: true
+    autoform:
+      type: 'hidden'
+    autoValue: () ->
+      new Date() if @isInsert
   roles:
     type: [String]
     label: 'Roles'
