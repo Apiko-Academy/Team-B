@@ -8,3 +8,7 @@ Meteor.publishComposite 'fullUserInfo',
       Companies.find _id:
         $in: companies
   ]
+
+
+Meteor.publish 'companyInfo', (id) ->
+  Companies.find _id: id
