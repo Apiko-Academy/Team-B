@@ -53,12 +53,34 @@ Router.goToAccessForbidden = () ->
   Winston.warn "Request to forbidden URL \"#{url}\""
   Router.go 'accessForbidden'
 
-Router.route '/companies/create',
+Router.route '/company/create',
   name: 'createCompany'
   layoutTemplate: 'Layout'
   action: () ->
     @render 'DefaultMenu', to: 'layoutMenu'
     @render 'CreateCompany'
+
+Router.route '/company/profile/:_id/:target?',
+  name: 'companyProfile'
+  layoutTemplate: 'Layout'
+  waitOn: () ->
+    Meteor.subscribe 'companyInfo', @params._id
+  action: () ->
+    company = Companies.findOne()
+    tpls =
+      customers: 'CompanyCustomers'
+      projects: 'CompanyProjects'
+      users: 'CompanyUsers'
+      resources: 'CompanyResources'
+    if not @params.target
+      @params.target = 'projects'
+    currTpl = tpls[@params.target]
+    @render 'DefaultMenu', to: 'layoutMenu'
+    @render currTpl, to: 'companySection'
+    @render 'CompanyProfile', data:
+      company: company
+      target: @params.target
+
 
 Router.onBeforeAction () ->
   if Meteor.userId()
